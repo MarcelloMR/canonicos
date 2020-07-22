@@ -1,0 +1,21 @@
+{
+	"$schema": "http://json-schema.org/schema#", 
+  "$id": "comuns/emailType.json",   
+	"title": "email",
+	"description": "email de contato.",
+  "version": "1.0",
+	"type": "object",
+  "properties": {
+    "email": {
+      "type": "string"
+    },
+    "principal": {
+      "type": "boolean",
+      "description":"Indica se é o e-mail preferencial de contato"
+    }
+  },
+  "required": [
+    "email",
+    "preferencial"
+  ]
+}

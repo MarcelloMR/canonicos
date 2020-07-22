@@ -1,0 +1,11 @@
+{
+    "$schema": "http://json-schema.org/schema#", 
+    "$id": "cliente/contratoListType.json",   
+    "title": "contratos",
+    "description": "Lista de contratos",
+    "version": "1.0",
+    "type": "array",
+    "itens": {
+      "$ref": "contratoTye.json"
+    } 
+}

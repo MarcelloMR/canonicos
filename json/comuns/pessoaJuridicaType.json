@@ -1,0 +1,20 @@
+{
+	"$schema": "http://json-schema.org/schema#", 
+  "$id": "comuns/pessoaJuridicaType.json",   
+	"title": "pessoaJuridica",
+	"description": "Pessoa Juridica",
+  "version": "1.0",
+	"type": "object",
+  "properties": {
+    "nomeFantasia": {
+      "type": "string"
+    },
+    "cnpj": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "nomeFantasia",
+    "cnpj"
+  ]
+}

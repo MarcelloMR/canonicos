@@ -1,0 +1,17 @@
+{
+    "$schema": "http://json-schema.org/schema#", 
+    "$id": "remocao/hospitalType.json",   
+    "title": "hospital",
+    "description": "Hospital de origem ou detino de uma remoção",
+    "version": "1.0",
+    "type": "object",
+    "properties": {
+        "nome":{
+            "type":"string"
+        },
+        "enderceo":{
+            "$ref":"../comuns/enderecoType.json"
+        }
+    },
+    "required": ["nome","endereco"]
+}

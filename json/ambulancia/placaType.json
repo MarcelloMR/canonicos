@@ -1,0 +1,17 @@
+{
+    "$schema": "http://json-schema.org/schema#", 
+    "$id": "ambulancia/placaType.json",   
+    "title": "placa",
+    "description": "placa da ambulância",
+    "version": "1.0",
+    "type": "object",
+    "properties": {
+        "identificador":{
+            "type":"string"
+        },
+        "municipio":{
+            "$ref":"../comuns/municipioType.json"
+        }
+    },
+    "required": ["identificador","municipio"]
+}

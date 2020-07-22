@@ -1,0 +1,32 @@
+{
+	"$schema": "http://json-schema.org/schema#", 
+  "$id": "comuns/prifissionalType.json",   
+	"title": "profissional",
+	"description": "profissional",
+  "version": "1.0",
+	"type": "object",
+  "properties": {
+    "codigo": {
+      "type": "string"
+    },
+    "tipo": {
+      "type": "string"
+    },
+    "numeroRegistroConselho": {
+      "type": "string"
+    },
+    "especialidade": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "enderecos": {
+        "$ref": "../comuns/endereçoListType.json"
+    },
+    "telefones": {
+      "$ref": "../comuns/telefoneListType.json"
+    }
+  },
+  "required": ["codigo","tipo","codigoBanco"]
+}

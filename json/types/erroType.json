@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$id": "types/erroType.json",
+  "title" : "erro",
+  "description": "Tipo usado para indicar detalhes de um erro.",
+  "version": "1.0",
+  "type": "object",
+  "properties": {
+    "code": {
+      "description": "Código de erro do negócio ou, na ausência, código HTTP do erro.",
+      "type": "string"
+    },
+    "error": {
+      "description": "Mensagem tratada do erro. Para exibição ao usuário.",
+      "type": "string"
+    },
+    "cause": {
+      "description": "Causa do erro. Utilizado por sistemas. (opcional).",
+      "type": "string"
+    },
+    "moreInfo": {
+      "description": "URL para página de informações sobre o erro. (opcional).",
+      "type": "string"
+    }
+  },
+  "required": [
+    "code",
+    "error"
+  ]
+}

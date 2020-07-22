@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/schema#", 
+  "$id": "comuns/municipioListType.json",   
+  "title": "municipios",
+  "description": "Lista (coleção) de beneficiários",
+  "version": "1.0",
+  "type": "array",
+  "items": {
+		"$ref": "municipioType.json"
+  }
+}

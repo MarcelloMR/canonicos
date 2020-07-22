@@ -1,0 +1,38 @@
+{
+	"$schema": "http://json-schema.org/schema#", 
+  "$id": "comuns/pessoaFisicaType.json",   
+	"title": "pessoaFisica",
+	"description": "Pessoa Fisica",
+  "version": "1.0",
+	"type": "object",
+  "properties": {
+    "nome": {
+      "type": "string"
+    },
+    "sobrenome": {
+      "type": "string"
+    },
+    "dataNascimento": {
+      "type": "string"
+    },
+    "cpf": {
+      "type": "string"
+    },
+    "sexo": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "role":{
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "nome",
+    "cpf"
+  ]
+}

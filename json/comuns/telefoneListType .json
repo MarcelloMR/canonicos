@@ -1,0 +1,11 @@
+{
+	"$schema": "http://json-schema.org/schema#", 
+  "$id": "comuns/telefoneListType.json",   
+	"title": "telefones",
+	"description": "telefone de contato.",
+  "version": "1.0",
+	"type": "array",
+  "items": {
+    "$ref":  "telefoneType.json"
+  }
+}

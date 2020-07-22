@@ -1,0 +1,11 @@
+{
+    "$schema": "http://json-schema.org/schema#", 
+    "$id": "comuns/profissionalListType.json",   
+    "title": "profissionais",
+    "description": "Lista de profissionais",
+    "version": "1.0",
+    "type": "array",
+    "items": {
+        "$ref": "profissionalType.json"
+    }
+}

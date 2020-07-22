@@ -1,0 +1,20 @@
+{
+    "$schema": "http://json-schema.org/schema#", 
+    "$id": "ambulancia/ambulanciaType.json",   
+    "title": "ambulancia",
+    "description": "Ambulancia",
+    "version": "1.0",
+    "type": "object",
+    "properties": {
+        "codigo":{
+            "type":"string"
+        },
+        "status":{
+            "type":"string"
+        },
+        "carro":{
+            "$ref":"revisaoListType.json"
+        }
+    },
+    "required": ["codigo","status", "carro"]
+}

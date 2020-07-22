@@ -1,0 +1,11 @@
+{
+	"$schema": "http://json-schema.org/schema#", 
+  "$id": "comuns/disponibilidadeListType.json",   
+	"title": "disponibilidades",
+	"description": "telefone de contato",
+  "version": "1.0",
+	"type": "array",
+  "items": {
+		"$ref": "disponibilidadeType.json"
+  }
+}

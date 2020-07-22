@@ -1,0 +1,19 @@
+
+{
+    "$schema": "http://json-schema.org/schema#", 
+    "$id": "ambulancia/revisaoType.json",   
+    "title": "revisao",
+    "description": "revisão feita pela ambulância",
+    "version": "1.0",
+    "type": "object",
+    "properties": {
+        "quilometragem":{
+            "description": "quilometragem exibida quando o carro foi para a revisão",
+            "type":"string"
+        },
+        "data":{
+            "type":"string"
+        }
+    },
+    "required": ["data"]
+}

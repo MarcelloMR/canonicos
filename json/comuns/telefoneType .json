@@ -1,0 +1,32 @@
+{
+	"$schema": "http://json-schema.org/schema#", 
+  "$id": "comuns/telefoneType.json",   
+	"title": "telefone",
+	"description": "telefone de contato.",
+  "version": "1.0",
+	"type": "object",
+  "properties": {
+    "tipo": {
+      "type": "string",
+      "description": "Se é celular, residencial ou contato profissional"
+    },
+    "prefeencial": {
+      "type": "boolean",
+      "description":"Indica se é o contato telefonico preferencial"
+    },
+    "ddd":{
+        "type":"number"
+    },
+    "numero":{
+        "type":"number"
+    },
+    "possuiWhatsapp": {
+      "type": "boolean",
+      "description":"Indica se é o contato telefonico possui whatsapp associado"
+    }
+  },
+  "required": [
+    "email",
+    "preferencial"
+  ]
+}

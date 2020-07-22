@@ -1,0 +1,32 @@
+{
+	"$schema": "http://json-schema.org/schema#", 
+    "$id": "comuns/enderecoIdType.json",   
+	"title": "endereco",
+    "version": "1.0",
+	"type": "object",
+	"properties": {
+		"cep": {
+			"type": "string"
+		},		
+		"tipo": {
+			"type": "string",
+			"enum": 
+			[ "Residencial","Profissional"]
+		},
+		"numero": {
+			"type": "string"
+		},
+		"complemento": {
+			"type": "string"
+		},
+		"bairro": {
+			"type": "string"
+		},
+		"municipio": {
+			"$ref": "municipioType.json"
+		}
+	},
+	"required": [
+		"tipo", "cep"
+	]
+}

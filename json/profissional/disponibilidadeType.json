@@ -1,0 +1,20 @@
+{
+	"$schema": "http://json-schema.org/schema#", 
+  "$id": "comuns/disponibiildadeType.json",   
+	"title": "disponibilidade",
+	"description": "Disponibiidade para alocações",
+  "version": "1.0",
+	"type": "object",
+  "properties": {
+    "diaSemana": {
+      "type": "string"
+    },
+    "horaInicio": {
+      "type": "string"
+    },
+    "horaFim": {
+      "type": "string"
+    }
+  },
+  "required": ["nome","agencia","codigoBanco"]
+}

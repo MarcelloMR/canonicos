@@ -1,0 +1,11 @@
+{
+    "$schema": "http://json-schema.org/schema#", 
+    "$id": "ambulancia/revisaoListType.json",   
+    "title": "revisoes",
+    "description": "Lista de revisões feitas pelo carro",
+    "version": "1.0",
+    "type": "array",
+    "itens": {
+        "$ref":"revisaoType.json"
+    }
+}

@@ -1,0 +1,21 @@
+{
+	"$schema": "http://json-schema.org/schema#", 
+    "$id": "comuns/statusProcessamentoType.json",   
+	"title": "statusProcessamento",
+    "version": "1.0",
+	"type": "object",
+	"properties": {
+		"codigo": {
+			"description": "codigo do status do processamento",
+			"type": "string"
+		},
+		"descricao": {
+			"description": "Descrição do status do processamento",
+			"type": "string"
+		}
+	},
+	"required": [
+		"codigo",
+		"descricao"
+	]
+}

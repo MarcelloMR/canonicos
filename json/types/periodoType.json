@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$id": "types/periodoType.json",
+  "title" : "periodo",
+  "description": "Tipo usado para expressar um período, em dias.",
+  "version": "1.0",
+  "type": "object",
+  "properties": {
+    "dataInicio": {
+      "type": "string"
+    },
+    "dataFim": {
+      "type": "string"
+    }
+  }
+}

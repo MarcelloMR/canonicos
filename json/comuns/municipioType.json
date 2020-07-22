@@ -1,0 +1,23 @@
+{
+	"$schema": "http://json-schema.org/schema#", 
+  "$id": "comuns/municipioType.json",   
+	"title": "municipio",
+	"description": "Municipio brasileiro.",
+  "version": "1.0",
+	"type": "object",
+  "properties": {
+    "codigo": {
+      "description": "Código IBGE do Município.",
+      "type": "string"
+    },
+    "nome": {
+      "type": "string"
+    },
+    "unidadeFederacao": {
+      "$ref": "unidadeFederacaoType.json"
+    }
+  },
+  "required": [
+    "codigo"
+  ]
+}
