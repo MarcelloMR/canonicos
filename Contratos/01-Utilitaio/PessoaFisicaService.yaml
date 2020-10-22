@@ -1,0 +1,170 @@
+openapi: "3.0.0"
+info:
+  description: .
+  version: '1.0'
+  title: PessoaFisicaService
+  termsOfService: 'https://ans.gov.br/soa/termos-de-uso'
+  contact:
+    email: soa@ans.org.br
+  license:
+    name: Apache 2.0
+    url: 'https://www.apache.org/licenses/LICENSE-2.0.html'
+servers:
+  - url: http://soa-mds/pessoasfisicas
+paths:
+  '/{identificador}':
+    get:
+      description: "Consulta uma pessoa física por seu CPF ou CNS."
+      operationId: "consultar"
+      parameters:
+      - in: "path"
+        name: "identificador"
+        description: "CPF ou CNS"
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/pessoaFisica'
+        '400':
+          $ref: '#/components/responses/badRequest'
+        '401':
+          $ref: '#/components/responses/unauthorized'
+        '403':
+          $ref: '#/components/responses/forbbiden'
+        '404':
+          $ref: '#/components/responses/notFound'
+        '406':
+          $ref: '#/components/responses/notAcceptable'
+        '500':
+          $ref: '#/components/responses/internalError'
+  '/pesquisaDemografica':
+    get:
+      description: "Pesquisa pessoas físicas por seus dados demográficos."
+      operationId: pesquisar
+      parameters:
+      - in: "query"
+        name: "nome"
+        description: "Nome da pessoa física"
+        required: false
+        schema:
+          type: string
+      - in: "query"
+        name: "nomeTratamento"
+        description: "Nome de tratamento da pessoa física"
+        required: false
+        schema:
+          type: string  
+      - in: "query"
+        name: "sexo"
+        description: "Sexo da pessoa física"
+        required: false
+        schema:
+          type: string  
+          enum:
+          - Masculino
+          - Feminino
+          - Ignorado
+      - in: "query"
+        name: "dataNascimento"
+        description: "Nome de tratamento da pessoa física"
+        required: false
+        schema:
+          type: string  
+          format: date
+      - in: "query"
+        name: "municipioNascimento"
+        description: "Municipio de nascimento da pessoa física"
+        required: false
+        schema:
+          type: string 
+      - in: query
+        name: paginacao.inicio
+        description: Índice do primeiro item (offset) da página
+        required: false
+        schema:
+          type: integer
+      - in: query
+        name: paginacao.quantidade
+        description: Quantidade de registros na página
+        required: false
+        schema:
+          type: integer
+          maximum: 100
+      requestBody:
+        description: 'Dados demográficos'
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/dadosDemograficos'
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/pessoasFisicas'
+        '400':
+          $ref: '#/components/responses/badRequest'
+        '401':
+          $ref: '#/components/responses/unauthorized'
+        '403':
+          $ref: '#/components/responses/forbbiden'
+        '404':
+          $ref: '#/components/responses/notFound'
+        '406':
+          $ref: '#/components/responses/notAcceptable'
+        '500':
+          $ref: '#/components/responses/internalError'
+components:
+  responses:
+    badRequest: 
+      description: Erro de requisição
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/erro'
+    unauthorized:
+      description: Erro de autenticação
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/erro'
+    forbbiden:
+      description: Não autorizado
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/erro'
+    notFound:
+      description: Recurso não encontrado
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/erro'
+    notAcceptable:
+      description: O tipo solicitado de retorno não é suportado
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/erro'
+    internalError:
+      description: O servidor não conseguiu concluir requisição
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/erro'
+  schemas:
+    pessoaFisica:
+      $ref: http://soa-mds/json/pessoa/pessoaFisicaType.json
+    pessoasFisicas: 
+      $ref: http://soa-mds/json/pessoa/pessoaFisicaListType.json
+    dadosDemograficos:
+      $ref: http://soa-mds/json/pessoa/pessoaFisicaDadosDemograficosType.json
+    erro:
+      $ref: 'http://soa-mds/json/types/erroType.json'
