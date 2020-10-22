@@ -21,12 +21,16 @@
     "status": {
       "type": "string"
     },
+    
+    "dadosPessoais":{
+      "$ref": "../comuns/pessoaFisicaType.json"
+    },
     "enderecos": {
-        "$ref": "../comuns/endereçoListType.json"
+        "$ref": "../comuns/enderecoListType.json"
     },
     "telefones": {
       "$ref": "../comuns/telefoneListType.json"
     }
   },
-  "required": ["codigo","tipo","codigoBanco"]
+  "required": ["codigo","tipo"]
 }
