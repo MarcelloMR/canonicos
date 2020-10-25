@@ -13,7 +13,7 @@
         "type":"string"
       },
       "contratos":{
-          "$ref":"contratosListType.json"
+          "$ref":"contratoListType.json"
       },
       "contratoAtivo":{
           "type":"boolean"

@@ -1,10 +1,10 @@
 {
-	"$schema": "http://json-schema.org/schema#", 
+  "$schema": "http://json-schema.org/schema#", 
   "$id": "comuns/pessoaJuridicaListType.json",   
-	"title": "pessoasJuridicas",
-	"description": "Lista de pessoas juridicas.",
+  "title": "pessoasJuridicas",
+  "description": "Lista de pessoas juridicas.",
   "version": "1.0",
-	"type": "array",
+  "type": "array",
   "items": {
 		"$ref": "pessoaJuridicaType.json"
   }

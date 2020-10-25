@@ -13,8 +13,8 @@
             "type":"string"
         },
         "carro":{
-            "$ref":"revisaoListType.json"
+            "$ref":"carroType.json"
         }
     },
-    "required": ["codigo","status", "carro"]
+    "required": ["codigo","status","carro"]
 }

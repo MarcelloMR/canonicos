@@ -5,7 +5,7 @@
     "description": "Lista de contratos",
     "version": "1.0",
     "type": "array",
-    "itens": {
-      "$ref": "contratoTye.json"
+    "items": {
+      "$ref": "contratoType.json"
     } 
 }
