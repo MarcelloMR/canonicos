@@ -1,0 +1,219 @@
+openapi: "3.0.0"
+info:
+  description: .
+  version: "1.0"
+  title: RemocaoService
+  contact:
+    email: marcellomrib@gmail.com
+  license:
+    name: Apache 2.0
+    url: "https://www.apache.org/licenses/LICENSE-2.0.html"
+servers:
+  - url: http://soa-mds/sisremocao/remocao
+paths:
+  "/{codigo}":
+    get:
+      description: "Consulta uma remocao usando seu código de sistema"
+      operationId: "consultar"
+      parameters:
+        - in: "path"
+          name: "codigo"
+          description: "código da remocao gerado pelo sistema"
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/remocao"
+        "400":
+          $ref: "#/components/responses/badRequest"
+        "403":
+          $ref: "#/components/responses/forbbiden"
+        "404":
+          $ref: "#/components/responses/notFound"
+        "500":
+          $ref: "#/components/responses/internalError"
+    put:
+      description: "Atualiza dados de um remocao através do seu código de sistema"
+      operationId: "atualizar"
+      parameters:
+        - in: "path"
+          name: "codigo"
+          description: "código da remocao gerado pelo sistema"
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/remocao"
+      responses:
+        "201":
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/statusProcessamento"
+        "400":
+          $ref: "#/components/responses/badRequest"
+        "403":
+          $ref: "#/components/responses/forbbiden"
+        "404":
+          $ref: "#/components/responses/notFound"
+        "500":
+          $ref: "#/components/responses/internalError"
+  "/":
+    get:
+      description: "Pesquisa por remocaos através do filtros dataInicio, dataFim, cliente, profissional, status"
+      operationId: pesquisar
+      parameters:
+        - in: "query"
+          name: "status"
+          description: "status atual de disponibilidade da ambulância"
+          required: false
+          schema:
+            type: string
+            enum:
+              - silicitada
+              - em andamento
+              - realizada
+              - aguardando pagamento
+              - paga
+              - canelcada
+        - in: "query"
+          name: "cliente"
+          description: "codigo do cliente que terá remoções pesquisadas"
+          required: false
+          schema:
+            type: string
+        - in: "query"
+          name: "profissional"
+          description: "codigo do profissional que terá remoções pesquisadas"
+          required: false
+          schema:
+            type: string
+        - in: "query"
+          name: "dataInicio"
+          description: "data de inicio da filtragem da pesquisa"
+          required: true
+          schema:
+            type: string
+        - in: "query"
+          name: "datafim"
+          description: "data de inicio da filtragem da pesquisa"
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/listaRemocao"
+        "400":
+          $ref: "#/components/responses/badRequest"
+        "403":
+          $ref: "#/components/responses/forbbiden"
+        "404":
+          $ref: "#/components/responses/notFound"
+        "500":
+          $ref: "#/components/responses/internalError"
+    post:
+      description: "Adiciona nova remoção"
+      operationId: inserir
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/remocao"
+      responses:
+        "201":
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/statusProcessamento"
+        "400":
+          $ref: "#/components/responses/badRequest"
+        "403":
+          $ref: "#/components/responses/forbbiden"
+        "404":
+          $ref: "#/components/responses/notFound"
+        "500":
+          $ref: "#/components/responses/internalError"
+  "/{codigo}/{status}":
+    put:
+      description: "Atualiza apenas status da remoção"
+      operationId: "atualizarStatus"
+      parameters:
+        - in: "path"
+          name: "codigo"
+          description: "código da remocao gerado pelo sistema"
+          required: true
+          schema:
+            type: string
+        - in: "path"
+          name: "status"
+          description: "código da remocao gerado pelo sistema"
+          required: true
+          schema:
+            type: string
+      responses:
+        "201":
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/statusProcessamento"
+        "400":
+          $ref: "#/components/responses/badRequest"
+        "403":
+          $ref: "#/components/responses/forbbiden"
+        "404":
+          $ref: "#/components/responses/notFound"
+        "500":
+          $ref: "#/components/responses/internalError"
+
+components:
+  responses:
+    badRequest:
+      description: Erro de requisição
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/erro"
+    forbbiden:
+      description: Não autorizado
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/erro"
+    notFound:
+      description: Recurso não encontrado
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/erro"
+    internalError:
+      description: O servidor não conseguiu concluir requisição
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/erro"
+  schemas:
+    remocao:
+      $ref: "http://soa-mds/sisremocao/json/remocao/remocaoType.json"
+    listaRemocao:
+      $ref: "http://soa-mds/sisremocao/json/remocao/remocaoListType.json"
+    erro:
+      $ref: "http://soa-mds/sisremocao/json/types/erroType.json"
+    statusProcessamento:
+      $ref: "http://soa-mds/sisremocao/json/types/atributoCodificadoType.json"

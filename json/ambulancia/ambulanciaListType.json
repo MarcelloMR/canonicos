@@ -1,0 +1,11 @@
+{
+    "$schema": "http://json-schema.org/schema#", 
+    "$id": "ambulancia/ambulanciaListType.json",   
+    "title": "ambulancias",
+    "description": "Lista de ambulancias",
+    "version": "1.0",
+    "type": "array",
+    "items": {
+        "$ref": "ambulanciaType.json"
+    }
+}
